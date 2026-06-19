@@ -1,0 +1,64 @@
+PROMPTS GERADOS PELO RAG
+---
+==================================================
+INICIANDO TESTES DO PIPELINE RAG (ITEM 2)
+==================================================
+
+--- PERGUNTA 1 ---
+Q: 'Qual o prazo de devolução?'
+Chunks Recuperados (Ordene e compare com o Anexo B para relatar o gabarito):
+  -> Score 0.481 | Arquivo: POL-001-politica-devolucao.md (Abaixo limiar? False)
+     Trecho: ### 3.5. Custos de devolução  - Defeito ou erro da NovaTech (carga errada, avari...
+  -> Score 0.445 | Arquivo: POL-001-politica-devolucao.md (Abaixo limiar? False)
+     Trecho: ### 3.2. Exceções ao prazo geral  As seguintes categorias de carga NÃO são elegí...
+  -> Score 0.397 | Arquivo: POL-001-politica-devolucao.md (Abaixo limiar? False)
+     Trecho: ### 3.4. Devoluções parciais  Quando a entrega envolver múltiplos volumes, o cli...
+
+[!] Prompt montado e salvo em: prompts_gerados/prompt_pergunta_1.txt
+
+
+--- PERGUNTA 2 ---
+Q: 'Posso devolver carga perigosa?'
+Chunks Recuperados (Ordene e compare com o Anexo B para relatar o gabarito):
+  -> Score 0.460 | Arquivo: FAQ-atendimento.md (Abaixo limiar? False)
+     Trecho: ### Item 3 — "Cliente perguntou se pode devolver carga perigosa. O que respondo?...
+  -> Score 0.405 | Arquivo: FAQ-atendimento.md (Abaixo limiar? False)
+     Trecho: ### Item 22 — "Cliente quer saber sobre seguro de carga. O que falar?" A NovaTec...
+  -> Score 0.358 | Arquivo: FAQ-atendimento.md (Abaixo limiar? False)
+     Trecho: ### Item 38 — "Cliente quer saber a política para carga que chegou danificada." ...
+
+[!] Prompt montado e salvo em: prompts_gerados/prompt_pergunta_2.txt
+
+
+--- PERGUNTA 3 ---
+Q: 'Qual o SLA do cliente Gold?'
+Chunks Recuperados (Ordene e compare com o Anexo B para relatar o gabarito):
+  -> Score 0.362 | Arquivo: SLA-2024-tabela-sla-clientes.md (Abaixo limiar? False)
+     Trecho: ## 5. Medição e reportes  Os SLAs são medidos pelo sistema de chamados (Azure De...
+  -> Score 0.362 | Arquivo: FAQ-atendimento.md (Abaixo limiar? False)
+     Trecho: ### Item 41 — "Qual a diferença entre SLA de resposta e SLA de resolução?" Respo...
+  -> Score 0.355 | Arquivo: SLA-2024-tabela-sla-clientes.md (Abaixo limiar? False)
+     Trecho: | Tier | Critério de elegibilidade | Revisão | |------|-------------------------...
+
+[!] Prompt montado e salvo em: prompts_gerados/prompt_pergunta_3.txt
+
+
+--- PERGUNTA 4 ---
+Q: 'Frete para 600kg para Manaus?'
+[RETRIEVER] Nenhum chunk relevante encontrado para a pergunta.
+Resultado: Nenhum chunk recuperado para esta pergunta (tudo abaixo do limiar ou nulo).
+
+[!] Prompt montado e salvo em: prompts_gerados/prompt_pergunta_4.txt
+
+
+--- PERGUNTA 5 ---
+Q: 'Carga perigosa com frete expresso?'
+Chunks Recuperados (Ordene e compare com o Anexo B para relatar o gabarito):
+  -> Score 0.566 | Arquivo: FAQ-atendimento.md (Abaixo limiar? False)
+     Trecho: ### Item 32 — "Pode enviar carga perigosa com frete expresso?" Sim, mas precisa ...
+  -> Score 0.440 | Arquivo: FAQ-atendimento.md (Abaixo limiar? False)
+     Trecho: ### Item 38 — "Cliente quer saber a política para carga que chegou danificada." ...
+  -> Score 0.423 | Arquivo: FAQ-atendimento.md (Abaixo limiar? False)
+     Trecho: ### Item 22 — "Cliente quer saber sobre seguro de carga. O que falar?" A NovaTec...
+
+[!] Prompt montado e salvo em: prompts_gerados/prompt_pergunta_5.txt

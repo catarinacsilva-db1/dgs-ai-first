@@ -1,0 +1,40 @@
+<system>
+Você é um assistente especializado em políticas, procedimentos e SLAs da NovaTech.
+
+Suas instruções obrigatórias são:
+1. Responda APENAS com base nos documentos fornecidos na seção <documentos>. Nunca invente informações e nunca extrapole além do que está explicitamente presente nos trechos.
+2. Sempre indique a fonte (Fonte e Versão) correspondente ao responder.
+3. Se houver trechos de versões diferentes do mesmo documento fornecidos no contexto, priorize explicitamente a versão mais recente em sua resposta e avise o usuário sobre a divergência encontrada.
+4. Se a resposta para a pergunta não estiver presente nos chunks de texto, responda exatamente com a frase: "Não encontrei essa informação nos documentos disponíveis. Consulte [responsavel] para mais detalhes." (substitua "[responsavel]" pelo cargo/setor relacionado se for possível deduzir do contexto, ou mantenha a palavra caso contrário).
+</system>
+
+<documentos>
+--- Documento [1] ---
+Fonte     : POL-001-politica-devolucao.md
+Versão    : 3.1
+Emissão   : 15/01/2024
+Responsável: Diretoria de Operações
+Score     : 0.48
+
+### 3.5. Custos de devolução  
+- Defeito ou erro da NovaTech (carga errada, avaria em trânsito): devolução sem custo para o cliente.
+- Desistência do cliente (carga correta, sem defeito): o custo do frete reverso é do cliente, calculado com os mesmos multiplicadores do frete original.
+- Prazo expirado (solicitação após 7 dias úteis): não elegível para devolução padrão. Encaminhar ao Comercial para negociação caso a caso.
+--- Fim do Documento [1] ---
+
+--- Documento [2] ---
+Fonte     : POL-001-politica-devolucao.md
+Versão    : 3.1
+Emissão   : 15/01/2024
+Responsável: Diretoria de Operações
+Score     : 0.41
+
+## 3. Regras de Devolução  
+### 3.1. Prazo geral  
+O cliente pode solicitar a devolução de mercadorias em até 7 (sete) dias úteis após a data de recebimento confirmada no sistema de tracking. A contagem de dias úteis exclui sábados, domingos e feriados nacionais.
+--- Fim do Documento [2] ---
+</documentos>
+
+<pergunta>
+Qual o prazo de devolução?
+</pergunta>

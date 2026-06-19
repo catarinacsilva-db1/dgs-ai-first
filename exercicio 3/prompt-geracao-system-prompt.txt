@@ -1,0 +1,83 @@
+Você é um engenheiro de ML sênior especializado em pipelines RAG com Python.
+
+**Contexto:**
+Este código é a etapa de MONTAGEM DE PROMPT de um pipeline RAG para a empresa NovaTech.
+A etapa anterior (`retriever.py`) já retornou uma lista de dicionários com os chunks recuperados
+do ChromaDB. Agora, esta função monta o prompt final para envio ao Claude (Anthropic).
+
+Cada chunk da lista possui os campos:
+`chunk_index_global`, `score`, `texto`, `source`, `doc_id`, `versao`,
+`data_emissao`, `responsavel`, `chunk_index`, `total_chunks`, `abaixo_do_limiar`
+
+**Tarefa:**
+Crie uma função Python chamada `montar_prompt` em um arquivo chamado `prompt_builder.py`.
+
+**Assinatura da função:**
+
+def montar_prompt(
+    pergunta: str,
+    chunks: list[dict],
+    max_tokens_contexto: int = 3000,
+    incluir_aviso_limiar: bool = True
+) -> str:
+
+**Comportamento esperado:**
+
+1. SYSTEM PROMPT fixo (embutido na função como constante `SYSTEM_PROMPT`):
+   - Persona: assistente especializado em políticas, procedimentos e SLAs da NovaTech
+   - Instrução obrigatória: responder APENAS com base nos documentos fornecidos,
+     nunca inventar informações, nunca extrapolar além do que está nos chunks
+   - Instrução de citação: sempre indicar a fonte (source + versão) ao responder
+   - Instrução de conflito: se houver chunks de versões diferentes do mesmo documento,
+     priorizar explicitamente a versão mais recente e avisar o usuário sobre a divergência
+   - Instrução de ausência: se a resposta não estiver nos chunks, responder exatamente:
+     "Não encontrei essa informação nos documentos disponíveis. Consulte [responsavel] para mais detalhes."
+
+2. MONTAGEM DO CONTEXTO (seção de chunks):
+   - Iterar sobre os chunks ordenados por `chunk_index_global` (já vêm ordenados por score decrescente)
+   - Para cada chunk, formatar como bloco delimitado:
+
+     --- Documento [chunk_index_global + 1] ---
+     Fonte     : {source}
+     Versão    : {versao}
+     Emissão   : {data_emissao}
+     Responsável: {responsavel}
+     Score     : {score:.2f}
+     {se abaixo_do_limiar: "[ATENÇÃO: relevância abaixo do limiar mínimo]"}
+     
+     {texto}
+     --- Fim do Documento [chunk_index_global + 1] ---
+
+   - Antes de adicionar cada bloco, estimar os tokens usados (usar heurística: 1 token ≈ 4 caracteres)
+   - Se adicionar o próximo chunk ultrapassar `max_tokens_contexto`, parar de adicionar e registrar aviso:
+     `[PROMPT_BUILDER] Contexto truncado: {N} de {total} chunks incluídos por limite de tokens.`
+   - Se `incluir_aviso_limiar=True` e algum chunk tiver `abaixo_do_limiar=True`,
+     adicionar nota no topo do contexto:
+     `[NOTA: Um ou mais trechos abaixo possuem relevância baixa. Use-os com cautela.]`
+
+3. MONTAGEM FINAL DO PROMPT (string única para Claude):
+   Estrutura obrigatória:
+
+   <system>
+   {SYSTEM_PROMPT}
+   </system>
+
+   <documentos>
+   {blocos dos chunks montados}
+   </documentos>
+
+   <pergunta>
+   {pergunta}
+   </pergunta>
+
+**Requisitos técnicos:**
+- Retornar o prompt como string única (formato Claude com tags XML)
+- Adicionar type hints completos
+- A constante `SYSTEM_PROMPT` deve ficar no topo do arquivo, fora da função, para fácil edição
+- Tratar lista de chunks vazia: retornar prompt com aviso no lugar dos documentos:
+  `[SEM CONTEXTO] Nenhum documento relevante foi recuperado para esta pergunta.`
+- Não usar bibliotecas externas — apenas Python puro (sem LangChain, sem tiktoken)
+
+**Ao final do arquivo, inclua um bloco comentado `# EXEMPLO DE USO` mostrando como chamar
+`montar_prompt` com uma lista de chunks simulada (2 chunks de exemplo hardcoded) e imprimir
+o resultado, para validação rápida sem precisar do ChromaDB.**

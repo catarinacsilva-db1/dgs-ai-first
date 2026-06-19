@@ -1,0 +1,28 @@
+(.venv) PS C:\Users\catarina.silva\OneDrive - DB1 Group\Imagens\Evidencias IA First\py-ia-first> python indexar_documentos.py
+Iniciando processo de indexação de documentos (RAG NovaTech)...
+
+Digite o caminho da pasta onde estão os arquivos .md: C:\Users\catarina.silva\OneDrive - DB1 Group\Imagens\Evidencias IA First\Prática 1\arquivos-input
+Digite o caminho da pasta do ChromaDB (padrão: ./chroma_db): C:\Users\catarina.silva\OneDrive - DB1 Group\Imagens\Evidencias IA First\py-ia-first\chroma_db
+Forçar reindexação completa (apaga o banco atual)? [s/N]: s
+
+Inicializando configurações...
+[AVISO] PROC-042-frete-especial-v1.md (v1.0) é versão anterior aPROC-042-v2-frete-especial-revisado.md (v2.0). Ambas serão indexadas; o LLM prioriza a mais recente via prompt.
+
+Carregando modelo de embeddings 'all-MiniLM-L6-v2'...
+Warning: You are sending unauthenticated requests to the HF Hub.Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|██████| 103/103 [00:00<00:00, 1453.37it/s]
+[INFO] Banco ChromaDB em 'C:\Users\catarina.silva\OneDrive - DB1Group\Imagens\Evidencias IA First\py-ia-first\chroma_db' removido para reindexação completa.
+[INDEXADO] FAQ-atendimento.md (não controlada) → 10 chunks
+[INDEXADO] POL-001-politica-devolucao.md (v3.1) → 9 chunks
+[INDEXADO] PROC-042-frete-especial-v1.md (v1.0 [versão anterior]) → 6 chunks
+[INDEXADO] PROC-042-v2-frete-especial-revisado.md (v2.0) → 7 chunks
+[INDEXADO] SLA-2024-tabela-sla-clientes.md (v2024.1) → 6 chunks
+
+========== RESUMO DA INDEXAÇÃO ==========
+Arquivos processados       : 5
+Arquivos pulados (já exist): 0
+Chunks gerados nesta execução: 38
+Total de chunks no banco   : 38
+Coleção ChromaDB           : novatech_docs
+Pasta do banco             : C:\Users\catarina.silva\OneDrive - DB1 Group\Imagens\Evidencias IA First\py-ia-first\chroma_db
+=========================================

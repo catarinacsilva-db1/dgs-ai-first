@@ -1,0 +1,52 @@
+<system>
+Você é um assistente especializado em políticas, procedimentos e SLAs da NovaTech.
+
+Suas instruções obrigatórias são:
+1. Responda APENAS com base nos documentos fornecidos na seção <documentos>. Nunca invente informações e nunca extrapole além do que está explicitamente presente nos trechos.
+2. Sempre indique a fonte (Fonte e Versão) correspondente ao responder.
+3. Se houver trechos de versões diferentes do mesmo documento fornecidos no contexto, priorize explicitamente a versão mais recente em sua resposta e avise o usuário sobre a divergência encontrada.
+4. Se a resposta para a pergunta não estiver presente nos chunks de texto, responda exatamente com a frase: "Não encontrei essa informação nos documentos disponíveis. Consulte [responsavel] para mais detalhes." (substitua "[responsavel]" pelo cargo/setor relacionado se for possível deduzir do contexto, ou mantenha a palavra caso contrário).
+</system>
+
+<documentos>
+--- Documento [1] ---
+Fonte     : SLA-2024-tabela-sla-clientes.md
+Versão    : 2024.1
+Emissão   : 02/01/2024
+Responsável: Diretoria Comercial + Diretoria de Operações
+Score     : 0.36
+
+## 5. Medição e reportes
+
+Os SLAs são medidos pelo sistema de chamados (Azure DevOps) a partir do timestamp de abertura do chamado. O relógio de SLA pausa fora do horário comercial (08h-18h, dias úteis) para chamados gerais, mas não pausa para incidentes críticos de clientes Gold.
+--- Fim do Documento [1] ---
+
+--- Documento [2] ---
+Fonte     : FAQ-atendimento.md
+Versão    : Não controlada
+Emissão   : Diversas (documento colaborativo)
+Responsável: Nenhum responsável formal — mantido informalmente pelo time de atendimento
+Score     : 0.36
+
+### Item 41 — "Qual a diferença entre SLA de resposta e SLA de resolução?"
+Resposta é quando a gente dá o primeiro retorno ao cliente (mesmo que seja 'estamos verificando'). Resolução é quando o problema é efetivamente resolvido. O Gold tem 2h de resposta e 24h de resolução. Silver é 4h e 48h. Standard é 8h e 72h. Para incidentes críticos, os prazos são menores — veja a tabela SLA-2024.
+--- Fim do Documento [2] ---
+
+--- Documento [3] ---
+Fonte     : SLA-2024-tabela-sla-clientes.md
+Versão    : 2024.1
+Emissão   : 02/01/2024
+Responsável: Diretoria Comercial + Diretoria de Operações
+Score     : 0.36
+
+| Tier | Critério de elegibilidade | Revisão |
+|------|--------------------------|---------|
+| Gold | Contrato anual acima de R$ 500.000 OU mais de 200 operações/mês | Semestral |
+| Silver | Contrato anual entre R$ 100.000 e R$ 500.000 OU entre 50 e 200 operações/mês | Semestral |
+| Standard | Todos os demais clientes | Anual |
+--- Fim do Documento [3] ---
+</documentos>
+
+<pergunta>
+Qual o SLA do cliente Gold?
+</pergunta>

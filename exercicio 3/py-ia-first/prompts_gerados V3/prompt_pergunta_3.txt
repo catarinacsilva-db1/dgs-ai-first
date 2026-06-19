@@ -1,0 +1,87 @@
+<system>
+Você é um assistente especializado em políticas, procedimentos e SLAs da NovaTech.
+
+Suas instruções obrigatórias são:
+1. Responda APENAS com base nos documentos fornecidos na seção <documentos>. Nunca invente informações e nunca extrapole além do que está explicitamente presente nos trechos.
+2. Sempre indique a fonte (Fonte e Versão) correspondente ao responder.
+3. Se houver trechos de versões diferentes do mesmo documento fornecidos no contexto, priorize explicitamente a versão mais recente em sua resposta e avise o usuário sobre a divergência encontrada.
+4. Se a resposta para a pergunta não estiver presente nos chunks de texto, responda exatamente com a frase: "Não encontrei essa informação nos documentos disponíveis. Consulte [responsavel] para mais detalhes." (substitua "[responsavel]" pelo cargo/setor relacionado se for possível deduzir do contexto, ou mantenha a palavra caso contrário).
+</system>
+
+<documentos>
+--- Documento [1] ---
+Fonte     : SLA-2024-tabela-sla-clientes.md
+Versão    : 2024.1
+Emissão   : 02/01/2024
+Responsável: Diretoria Comercial + Diretoria de Operações
+Score     : 0.55
+
+## 5. Medição e reportes  
+Os SLAs são medidos pelo sistema de chamados (Azure DevOps) a partir do timestamp de abertura do chamado. O relógio de SLA pausa fora do horário comercial (08h-18h, dias úteis) para chamados gerais, mas não pausa para incidentes críticos de clientes Gold.
+--- Fim do Documento [1] ---
+
+--- Documento [2] ---
+Fonte     : FAQ-atendimento.md
+Versão    : Não controlada
+Emissão   : Diversas (documento colaborativo)
+Responsável: Nenhum responsável formal — mantido informalmente pelo time de atendimento
+Score     : 0.55
+
+### Item 41 — "Qual a diferença entre SLA de resposta e SLA de resolução?"
+Resposta é quando a gente dá o primeiro retorno ao cliente (mesmo que seja 'estamos verificando'). Resolução é quando o problema é efetivamente resolvido. O Gold tem 2h de resposta e 24h de resolução. Silver é 4h e 48h. Standard é 8h e 72h. Para incidentes críticos, os prazos são menores — veja a tabela SLA-2024.
+--- Fim do Documento [2] ---
+
+--- Documento [3] ---
+Fonte     : FAQ-atendimento.md
+Versão    : Não controlada
+Emissão   : Diversas (documento colaborativo)
+Responsável: Nenhum responsável formal — mantido informalmente pelo time de atendimento
+Score     : 0.54
+
+### Item 15 — "Cliente diz que é Platinum. Existe esse tier?"
+Não existe tier Platinum na NovaTech. Às vezes o cliente confunde com outra transportadora ou com o programa de fidelidade antigo que foi descontinuado em 2022. Oriente que nossos tiers são Gold, Silver e Standard e peça o número do contrato para verificar.
+--- Fim do Documento [3] ---
+
+--- Documento [4] ---
+Fonte     : SLA-2024-tabela-sla-clientes.md
+Versão    : 2024.1
+Emissão   : 02/01/2024
+Responsável: Diretoria Comercial + Diretoria de Operações
+Score     : 0.51
+
+## 1. Classificação de clientes  
+A NovaTech classifica seus clientes em 3 (três) tiers com base no volume mensal de operações e no valor do contrato:  
+| Tier | Critério de elegibilidade | Revisão |
+|------|--------------------------|---------|
+| Gold | Contrato anual acima de R$ 500.000 OU mais de 200 operações/mês | Semestral |
+| Silver | Contrato anual entre R$ 100.000 e R$ 500.000 OU entre 50 e 200 operações/mês | Semestral |
+| Standard | Todos os demais clientes | Anual |  
+Nota: Não existem outros tiers além dos três listados acima. Solicitações de SLA diferenciado fora desses tiers devem ser encaminhadas ao Comercial para análise de viabilidade.
+
+Resumo textual da tabela:
+Gold — Critério de elegibilidade: Contrato anual acima de R$ 500.000 OU mais de 200 operações/mês, Revisão: Semestral
+Silver — Critério de elegibilidade: Contrato anual entre R$ 100.000 e R$ 500.000 OU entre 50 e 200 operações/mês, Revisão: Semestral
+Standard — Critério de elegibilidade: Todos os demais clientes, Revisão: Anual
+--- Fim do Documento [4] ---
+
+--- Documento [5] ---
+Fonte     : SLA-2024-tabela-sla-clientes.md
+Versão    : 2024.1
+Emissão   : 02/01/2024
+Responsável: Diretoria Comercial + Diretoria de Operações
+Score     : 0.51
+
+Resumo textual da tabela:
+Tempo de primeira resposta (chamados gerais) — Gold: Até 2h úteis, Silver: Até 4h úteis, Standard: Até 8h úteis
+Tempo de resolução (chamados gerais) — Gold: Até 24h úteis, Silver: Até 48h úteis, Standard: Até 72h úteis
+Tempo de primeira resposta (incidentes críticos) — Gold: Até 30min, Silver: Até 1h, Standard: Até 2h
+Tempo de resolução (incidentes críticos) — Gold: Até 4h, Silver: Até 8h, Standard: Até 24h
+Disponibilidade do portal de tracking — Gold: 99,5%, Silver: 99,0%, Standard: 98,0%
+Gerente de conta dedicado — Gold: Sim, Silver: Não, Standard: Não
+Relatório mensal de performance — Gold: Sim (detalhado), Silver: Sim (resumido), Standard: Sob demanda
+--- Fim do Documento [5] ---
+</documentos>
+
+<pergunta>
+Qual o SLA do cliente Gold?
+</pergunta>
